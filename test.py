@@ -3,10 +3,6 @@ import os
 from re import findall as reg
 from bs4 import BeautifulSoup as bs
 from concurrent.futures import ThreadPoolExecutor
-try:
-    from modules import logos
-except:
-    import logos
 
 save = True
 chk = False
@@ -1380,7 +1376,6 @@ def laravel_check(url):
 
 def check():
     os.system('cls')
-    logos.laravel()
     lista = list(x.strip() for x in open(input('{}[{}+{}] List : '.format(fw,fg,fw)),'r',errors='ignore').readlines())
     try:
         ThreadPoolExecutor(100).map(laravel_check,lista)
